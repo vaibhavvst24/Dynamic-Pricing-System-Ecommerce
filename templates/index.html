@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Dynamic Pricing System E-Commerce</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='best-price.png') }}">
+</head>
+<body>
+    <h2 class="main-title">Dynamic Pricing System E-Commerce</h2>
+    <form method="POST" action="/predict">
+        <label for="store"><i class="fas fa-store"></i>Store:</label>
+        <input type="number" name="Store" required>
+
+        <label><i class="fa-solid fa-gift"></i>Holiday Flag (0 or 1):</label>
+        <input type="number" name="Holiday_Flag" required>
+
+        <label><i class="fa-solid fa-temperature-full"></i>Temperature:</label>
+        <input type="number" step="0.01" name="Temperature" required>
+
+        <label><i class="fa-solid fa-gas-pump"></i>Fuel Price:</label>
+        <input type="number" step="0.01" name="Fuel_Price" required>
+
+        <label><i class="fa-solid fa-money-bill"></i>CPI:</label>
+        <input type="number" step="0.01" name="CPI" required>
+
+        <label><i class="fa-solid fa-user"></i>Unemployment:</label>
+        <input type="number" step="0.01" name="Unemployment" required>
+
+        <label><i class="fa-solid fa-calendar"></i>Month:</label>
+        <input type="number" name="Month" required>
+
+        <label><i class="fa-solid fa-calendar"></i>Year:</label>
+        <input type="number" name="Year" required>
+
+        <label><i class="fa-solid fa-calendar-week"></i>Week Of Year:</label>
+        <input type="number" name="WeekOfYear" required>
+
+        <label><i class="fa-solid fa-calendar-days"></i>Day Of Week:</label>
+        <input type="number" name="DayOfWeek" required>
+
+        <button type="submit">Predict</button>
+
+       {% if result %}
+            <div class="result">
+                <h3>{{ result }}</h3>
+            </div>
+        {% endif %}
+    </form>
+</body>
+</html>
